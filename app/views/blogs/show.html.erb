@@ -6,6 +6,10 @@
           <p class="">Verify that is you to publish your blog</p>
           <%= link_to 'Verify', blog_verify_path(@blog) %>
         </div>
+      <% else %>
+        <div class="important-message clear-fix">
+          <p class="">This blog is <strong>Published</strong></p>
+        </div>
       <% end %>
     <% end %>
     <div class="blog-title">
