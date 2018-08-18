@@ -1,10 +1,12 @@
 <div class="body">
   <div class="container">
-    <% if @blog.state == 'drafted' %>
-      <div class="important-message">
-        <p class="">Verify that is you to publish your blog</p>
-        <%= link_to 'Verify', blog_verify_path(@blog) %>
-      </div>
+    <% if !@current_user.nil? && (@current_user.blogs.include? @blog) %>
+      <% if @blog.state == 'drafted' %>
+        <div class="important-message clear-fix">
+          <p class="">Verify that is you to publish your blog</p>
+          <%= link_to 'Verify', blog_verify_path(@blog) %>
+        </div>
+      <% end %>
     <% end %>
     <div class="blog-title">
       <h3>Title</h3>

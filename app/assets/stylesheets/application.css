@@ -82,19 +82,20 @@ header nav li a:hover, header nav li a:active, header nav li a:focus{
     background-size: cover;
     background-color: white;
     background-position: center center;
-    min-height: 100%;
+    min-height: 90%;
     min-width: 100%;
     width: auto;
     height: auto;
     margin: 0;
     position: absolute;
     z-index: 2;
+    padding: 0;
 }
 .hero:after{
     position: absolute;
     z-index: 1;
     width: 100%;
-    height: 100%;
+    height: 90%;
     display: block;
     left: 0;
     top: 0;
@@ -257,10 +258,10 @@ a, a:hover{
 /**************Home Page******************/
 .wallpaper{
   background-image: url('https://goo.gl/v4qXp9');
-  /*background-size: cover;*/
+  background-size: cover;
   background-color: white;
   background-position: center top;
-  min-height: 100%;
+  min-height: 90%;
   min-width: 70%;
   background-repeat: no-repeat;
   background-color: inherit;
@@ -380,7 +381,8 @@ a, a:hover{
 
 .important-message a{
   text-decoration: none;
-  font-size: 40px;
+  display: inline-block;
+  font-size: 30px;
   color: #2C1217;
   background-color: #C1B08A;
   border-radius: 15px;
