@@ -7,7 +7,7 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV['DATABASE_NAME'] %>
+  database: blog_application_development
   username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
 
