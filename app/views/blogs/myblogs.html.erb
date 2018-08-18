@@ -1,0 +1,31 @@
+<div class="body">
+  <div class="container">
+    <% if @drafted_blogs.empty? && @published_blogs.empty? %>
+      <h2>You don't have any blogs yet!</h2>
+    <% else %>
+      <h2>My BLOGS</h2>
+      <div id="drafted_blogs">  
+        <% @drafted_blogs.each do |blog| %>
+          <div class="blog-cell">
+            <div class="title">
+              <%= link_to blog.title, blog_path(blog) %>
+              <p><%= blog.state %></p>
+              <p><%= blog.created_at.to_date %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div id="published clear-fix">
+        <% @published_blogs.each do |blog| %>
+          <div class="blog-cell clear-fix">
+            <div class="title clear-fix">
+              <%= link_to blog.title, blog_path(blog) %>
+              <p><%= blog.state %></p>
+              <p><%= blog.created_at.to_date %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

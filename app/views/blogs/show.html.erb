@@ -1,0 +1,28 @@
+<div class="body">
+  <div class="container">
+    <% if @blog.state == 'drafted' %>
+      <div class="important-message">
+        <p class="">Verify that is you to publish your blog</p>
+        <%= link_to 'Verify', blog_verify_path(@blog) %>
+      </div>
+    <% end %>
+    <div class="blog-title">
+      <h3>Title</h3>
+      <p><%= @blog.title %></p>
+    </div>
+    <div class="blog-description">
+      <h3>Description</h3>
+      <p><%= @blog.description %></p>
+    </div>
+    <div class="blog-content">
+      <h3>Content</h3>
+      <p><%= @blog.content %></p>
+    </div>
+    <div class="links">
+      <%= link_to 'Back', blogs_path, class: 'form-bg-submit' %>
+      <% if !@current_user.nil? && (@current_user.blogs.include? @blog) %>
+        <%= link_to 'Edit', edit_blog_path(@blog), class: 'form-bg-submit' %>
+      <% end %>
+    </div>
+  </div>
+</div>

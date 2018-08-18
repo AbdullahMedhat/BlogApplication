@@ -2,26 +2,38 @@
 <html>
   <head>
     <title>BlogApplication</title>
+    <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Titillium+Web" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-  
-    <% if user_signed_in? && !current_user.blank? %>
-      Hi <%= current_user.full_name %>
-      <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to 'Sign up', new_user_registration_path %> or
-      <%= link_to 'Sign in', new_user_session_path %>
-      <%= link_to 'Sign in with Google', user_google_oauth2_omniauth_authorize_path%>
-      <%= link_to 'Sign in with Facebook',user_facebook_omniauth_authorize_path %>
-    <% end %>
+    <header class="clear-fix">
+      <nav>
+        <ul>
+        <% if user_signed_in? && !current_user.blank? %>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'New blog', new_blog_path, class: 'sign_in' %></li>
+          <li><%= link_to 'My blogs', blogs_myblogs_path, class: 'sign_out' %></li>
+          <li><%= link_to 'Profile',edit_user_registration_path %></li>
+          <li><%= link_to 'Sign out', destroy_user_session_path,method: :delete, class: 'sign_out'%></li>
+        <% else %>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+        <% end %>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

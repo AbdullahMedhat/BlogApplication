@@ -1,0 +1,19 @@
+<div class="wallpaper"></div>
+  <div class="container clear-fix">
+    <% if @blogs.empty? %>
+      <h2>No blogs published yet!</h2>
+    <% else %>
+      <h2>ALL PUBLIC BLOGS!</h2>
+      <% @blogs.each do |blog| %>
+        <div class="col-md-4">
+          <div class="blog-card">
+            <p class="blog-author">By: <%= blog.user.full_name %></p>
+            <h3 class="blog-title"><%= blog.title %></h3>
+            <p class="blog-content"><%= blog.description %></p>
+            <%= link_to 'Read more...', blog_path(blog), class: "read-more" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

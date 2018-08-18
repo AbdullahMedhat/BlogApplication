@@ -10,15 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180815153632) do
+ActiveRecord::Schema.define(version: 20180815184504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blogs", force: :cascade do |t|
+    t.string "title", default: "", null: false
+    t.string "description", default: "", null: false
+    t.text "content", default: "", null: false
+    t.bigint "user_id", null: false
+    t.integer "state", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "full_name", default: "", null: false
+    t.string "phone_number"
+    t.string "authy_id"
+    t.string "country_code"
     t.string "provider"
     t.string "uid"
     t.datetime "remember_created_at"
@@ -29,7 +43,9 @@ ActiveRecord::Schema.define(version: 20180815153632) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["authy_id"], name: "index_users_on_authy_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["phone_number"], name: "index_users_on_phone_number"
   end
 
 end

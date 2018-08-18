@@ -1,0 +1,29 @@
+<section class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-8 mx-auto">
+        <div class="card border-none">
+          <div class="card-body">
+            <div class="mt-2 text-center">
+              <h2>Complete your profile</h2>
+            </div>
+            <div class="mt-4">
+              <%= form_for(resource, as: resource_name, url: users_update_path, html: { method: :put }) do |f| %>
+                <%= devise_error_messages! %>
+                <div class="field">
+                  <%= f.text_field :full_name, autofocus: true, autocomplete: "text", class: "form-control", placeholder: "Enter your full name", required: true %>
+                </div>
+                <div class="field">
+                  <% @countries = [['EG (+20)', '20'], ['AE (+971)', '971']]%>
+                  <%= f.select :country_code, @countries, {},class: "form-control", id: "country_code" %>
+
+                  <%= f.text_field :phone_number,  class: "form-control", id: "phone_number", placeholder: "Enter your phone number", required: true %>
+                </div>
+                <%= f.submit 'Update my profile',class: "btn btn-primary btn-block" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

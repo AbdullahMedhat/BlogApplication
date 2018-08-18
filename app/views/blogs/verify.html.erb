@@ -1,0 +1,21 @@
+<div class="body">
+  <div class="container">
+    <h2>Verify your phone number to publish! your blog</h2>
+    <p>
+      An SMS has sent! to your phone number <%= @user_phone %>
+    </p>
+    <span>If you have you use authy app you will got a push notification!</span>
+
+    <%= form_with url: "/blogs/#{@blog.id}/verify_user", method: :post, local: true do |f| %>
+      <div class="field">
+        <%= f.text_field :token, autofocus: true, class: "form-control", value: "", placeholder: "Enter your Token", required: true %>
+      </div>
+      <%= f.submit 'Verify',class: "btn btn-primary btn-block" %>
+    <% end %>
+
+
+    <% unless notice.nil? %> 
+      <%= notice %>
+    <% end %>
+  </div>
+</div>

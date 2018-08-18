@@ -1,0 +1,50 @@
+<section class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-8 mx-auto">
+          <div class="card border-none">
+              <div class="card-body">
+                <div class="mt-2 text-center">
+                    <h2>Create Your Account</h2>
+                </div>
+                <p class="mt-4 text-white lead text-center">
+                    Are you ready?  
+                </p>
+                <div class="mt-4">
+                  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                    <%= devise_error_messages! %>
+                    <div class="form-group">
+                      <%= f.email_field :email,autofocus: true, autocomplete: "email", class: "form-control", value: "", placeholder: "Enter email address", required: true %>
+                    </div>
+                    <div class="form-group">
+                    <%= f.password_field :password, autocomplete: "off", class: "form-control", value: "", placeholder: "Enter password", required: true %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", value: "", placeholder: "Confirm password", required: true %>
+                    </div>
+                    <%= f.submit "Sign up",class: "btn btn-primary btn-block" %>
+                  <% end %>
+                  <div class="clearfix"></div>
+                    <p class="content-divider center mt-4"><span>or</span></p>
+                  </div>
+                  <p class="mt-4 social-login text-center">
+                      <%- if devise_mapping.omniauthable? %>
+                        <%- resource_class.omniauth_providers.each do |provider| %>
+                          <% if provider == :facebook %>
+                            <%= link_to "", omniauth_authorize_path(resource_name, provider), class: "btn btn-facebook ion-social-facebook" %>
+                          <% elsif provider == :google_oauth2 %>
+                            <%= link_to "", omniauth_authorize_path(resource_name, provider), class: "btn btn-google ion-social-googleplus" %>
+                          <% end %>
+                        <% end -%>
+                      <% end -%>
+                  </p>
+                  <p class="text-center">
+                      Already have an account?
+                      <%= link_to "Sign in", new_user_session_path %><br />
+                  </p>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+</section>

@@ -41,6 +41,8 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
+    authy (2.7.4)
+      httpclient (>= 2.5.3.3)
     bcrypt (3.1.12)
     bindex (0.5.0)
     builder (3.2.3)
@@ -78,6 +80,7 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashie (3.5.7)
+    httpclient (2.8.3)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -218,6 +221,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  authy (~> 2.7, >= 2.7.4)
   bcrypt (~> 3.1.7)
   byebug
   capybara (~> 2.13)
